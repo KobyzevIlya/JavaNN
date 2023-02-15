@@ -1,14 +1,17 @@
 package ru.hse.hw1;
 
 import ru.hse.hw1.complex.ComplexNumber;
+import ru.hse.hw1.console.ConsoleHandler;
+
+import java.util.Scanner;
 
 public class MainClass {
     public static void main(String[] args) {
-        ComplexNumber a = new ComplexNumber(0, -1);
-        ComplexNumber b = new ComplexNumber(5, -2);
+        ComplexNumber a = new ComplexNumber(ConsoleHandler.getComplexNumber());
+        ComplexNumber b = new ComplexNumber(ConsoleHandler.getComplexNumber());
 
-        ComplexNumber c = a.root(7)[2];
+        ComplexNumber c = a.add(b);
 
-        System.out.print(c.getReal() + " " + c.getImag());
+        ConsoleHandler.printComplexNumber(c);
     }
 }

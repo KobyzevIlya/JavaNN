@@ -1,5 +1,7 @@
 package ru.hse.hw1.complex;
 
+import ru.hse.hw1.pair.Pair;
+
 public class ComplexNumber implements Cloneable {
     private double real;
     private double imag;
@@ -7,6 +9,10 @@ public class ComplexNumber implements Cloneable {
     public ComplexNumber(double real, double imag) {
         this.real = real;
         this.imag = imag;
+    }
+
+    public ComplexNumber(Pair<Double> number) {
+        this(number.getFirst(), number.getSecond());
     }
 
     public ComplexNumber add(ComplexNumber other) {
@@ -44,38 +50,6 @@ public class ComplexNumber implements Cloneable {
 
     public double getImag() {
         return imag;
-    }
-
-    public ComplexNumber pow(double exponent) {
-        if (exponent == 1) {
-            return this.clone();
-        }
-
-        if (exponent == 2) {
-            return multiply(this);
-        }
-
-        double mod = Math.pow(getModulus(), exponent);
-        double arg = getArgument() * exponent;
-        return new ComplexNumber(mod * Math.cos(arg), mod * Math.sin(arg));
-    }
-
-    public ComplexNumber[] root(int n) {
-        ComplexNumber[] roots = new ComplexNumber[n];
-
-        if (n == 1) {
-            roots[0] = clone();
-            return roots;
-        }
-
-        double magnitude = Math.pow(getModulus(), 1.0/n);
-        double angle = getArgument() / n;
-        for (int k = 0; k < n; k++) {
-            double newReal = magnitude * Math.cos((angle + 2 * (double) k * Math.PI) / (double) n);
-            double newImag = magnitude * Math.sin((angle + 2 * (double) k * Math.PI) / (double) n);
-            roots[k] = new ComplexNumber(newReal, newImag);
-        }
-        return roots;
     }
 
     @Override
