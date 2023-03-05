@@ -1,7 +1,7 @@
-package ru.hse.hw1.console;
+package hw1.console;
 
-import ru.hse.hw1.complex.ComplexNumber;
-import ru.hse.hw1.matrix.Matrix;
+import hw1.complex.ComplexNumber;
+import hw1.matrix.Matrix;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package ru.hse.hw1.complex;
+package hw1.complex;
 
 /**
  * A class of complex numbers that uses <code>double</code> for the real and image parts.
