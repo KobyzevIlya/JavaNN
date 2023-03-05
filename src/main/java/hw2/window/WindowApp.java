@@ -32,7 +32,7 @@ public class WindowApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 200);
         setLocationRelativeTo(null);
-        setTitle("Character Counter ver. 0.2");
+        setTitle("Character Counter ver. 1");
         setIconImage(icon.getImage());
 
         JPanel contentPanel = new JPanel();
