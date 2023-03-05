@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/**
+ * A window application for counting the number of characters in a text file.
+ */
 public class WindowApp extends JFrame {
     private JButton openFileButton;
     private JButton countCharactersButton;
@@ -21,6 +24,10 @@ public class WindowApp extends JFrame {
 
     private boolean isFileOpen = false;
 
+    /**
+     * Constructor for the WindowApp class. Sets up the GUI and sets event listeners
+     * for buttons.
+     */
     public WindowApp() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 200);
@@ -39,7 +46,8 @@ public class WindowApp extends JFrame {
         contentPanel.add(openFileButton);
 
         countCharactersButton = new JButton("Count characters");
-        countCharactersButton.setMaximumSize(new Dimension(Integer.MAX_VALUE, openFileButton.getPreferredSize().height));
+        countCharactersButton
+                .setMaximumSize(new Dimension(Integer.MAX_VALUE, openFileButton.getPreferredSize().height));
         countCharactersButton.setEnabled(isFileOpen);
         contentPanel.add(countCharactersButton);
 
@@ -49,9 +57,16 @@ public class WindowApp extends JFrame {
 
         JPanel mainPanel = new JPanel(new GridLayout(0, 1));
         mainPanel.add(contentPanel);
-        
+
         setContentPane(mainPanel);
 
+        /**
+         * Performs an action when the Open file button is clicked. Opens a JFileChooser
+         * dialog, sets the selected
+         * file, and enables the Count characters button.
+         * 
+         * @param e The ActionEvent triggered by the button click.
+         */
         openFileButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 doneLabel.setVisible(false);
@@ -65,7 +80,7 @@ public class WindowApp extends JFrame {
                         System.out.println("incorrect path");
                         return;
                     }
-                    
+
                     fileHandler.setFile(file);
                     selectedFileLabel.setText(fileHandler.getAbsolutePath());
                     isFileOpen = true;
@@ -74,6 +89,13 @@ public class WindowApp extends JFrame {
             }
         });
 
+        /**
+         * Performs an action when the Count characters button is clicked. Counts the
+         * characters in the selected file
+         * and writes the counts to a new file.
+         * 
+         * @param e The ActionEvent triggered by the button click.
+         */
         countCharactersButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 fileHandler.countCharacters();

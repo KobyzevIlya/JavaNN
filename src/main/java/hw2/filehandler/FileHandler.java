@@ -9,21 +9,40 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+* A class that handles reading and writing character counts to a file.
+*/
 public class FileHandler {
+    /**
+    * The size of the buffer used to read files.
+    */
     public static final int BUFFER_SIZE = 1024;
-    
+
     private File inputFile = null;
 
     private Map<Character, Integer> letterCounts;
 
+    /**
+    * Sets the input file to be read.
+    * 
+    * @param file the file to be read
+    */
     public void setFile(File file) {
         inputFile = file;
     }
 
+    /**
+   * Returns the absolute path of the input file.
+   * 
+   * @return the absolute path of the input file
+   */
     public String getAbsolutePath() {
         return inputFile.getAbsolutePath();
     }
 
+    /**
+    * Counts the occurrence of each character in the input file.
+    */
     public void countCharacters() {
         letterCounts = new HashMap<>();
         for (char c = 'a'; c <= 'z'; ++c) {
@@ -48,6 +67,10 @@ public class FileHandler {
         }
     }
 
+    /**
+    * Writes the character counts to a file.
+    * @param file the file to write to
+    */
     public void writeCounts(File file) {
         if (!file.exists()) {
             try {
