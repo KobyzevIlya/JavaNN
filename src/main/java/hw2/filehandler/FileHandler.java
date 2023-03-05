@@ -35,8 +35,7 @@ public class FileHandler {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
             char[] buffer = new char[BUFFER_SIZE];
-            int readed = 0;
-            while ((readed = reader.read(buffer, 0, buffer.length)) != -1) {
+            while ((reader.read(buffer, 0, buffer.length)) != -1) {
                 for (int i = 0; i < buffer.length; ++i) {
                     if ((buffer[i] >= 'A' && buffer[i] <= 'Z') || (buffer[i] >= 'a' && buffer[i] <= 'z')) {
                         letterCounts.put(buffer[i], letterCounts.get(buffer[i]) + 1);
@@ -44,7 +43,8 @@ public class FileHandler {
                 }
             }
         } catch (IOException eIoException) {
-            System.out.println("ex 1");
+            System.out.println("->file reading error<-");
+            eIoException.printStackTrace();
         }
     }
 
@@ -53,7 +53,8 @@ public class FileHandler {
             try {
                 file.createNewFile();
             } catch (IOException eIoException) {
-                System.out.println("ex 2");
+                System.out.println("->error when creating a file to be written<-");
+                eIoException.printStackTrace();
             }
         }
 
@@ -62,7 +63,8 @@ public class FileHandler {
                 writer.write(key + " " + letterCounts.get(key) + "\n");
             }
         } catch (IOException eIoException) {
-            System.out.println("ex 3");
+            System.out.println("->file writing error<-");
+            eIoException.printStackTrace();
         }
     }
 }

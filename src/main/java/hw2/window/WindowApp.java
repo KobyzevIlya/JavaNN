@@ -24,6 +24,7 @@ public class WindowApp extends JFrame {
     public WindowApp() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 200);
+        setLocationRelativeTo(null);
         setTitle("Character Counter ver. 0.2");
         setIconImage(icon.getImage());
 

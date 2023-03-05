@@ -24,4 +24,4 @@ hs_err_pid*
 
 #ignore added from me
 .idea/
-.target/
+target/
