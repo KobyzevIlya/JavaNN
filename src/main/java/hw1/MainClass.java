@@ -1,8 +1,8 @@
-package ru.hse.hw1;
+package hw1;
 
-import ru.hse.hw1.complex.ComplexNumber;
-import ru.hse.hw1.console.ConsoleHandler;
-import ru.hse.hw1.matrix.Matrix;
+import hw1.complex.ComplexNumber;
+import hw1.console.ConsoleHandler;
+import hw1.matrix.Matrix;
 
 public class MainClass {
     public static void main(String[] args) {

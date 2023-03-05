@@ -1,6 +1,6 @@
-package ru.hse.hw1.matrix;
+package hw1.matrix;
 
-import ru.hse.hw1.complex.ComplexNumber;
+import hw1.complex.ComplexNumber;
 
 /**
  * <code>ComplexNumber</code> matrix class. Supports addition, subtraction, multiplication by another matrix,
