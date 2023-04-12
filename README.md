@@ -1,5 +1,6 @@
 # JavaNN
 ### Homework in a Java course in Nizhny Novgorod
 
-- [`hw1`](https://github.com/KobyzevIlya/JavaNN/tree/master/src/main/java/hw1)
-- [`hw2`](https://github.com/KobyzevIlya/JavaNN/tree/master/src/main/java/hw2)
+- [`hw1`](src/main/java/hw1/)
+- [`hw2`](src/main/java/hw2/)
+- [`hw3`](src/main/java/hw3/)
