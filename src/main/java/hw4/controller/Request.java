@@ -6,7 +6,7 @@ public class Request {
     private int requestFloor;
     private State direction;
 
-    Request(int requestFloor, State direction) {
+    public Request(int requestFloor, State direction) {
         this.requestFloor = requestFloor;
         this.direction = direction;
     }
