@@ -45,5 +45,6 @@ public class MainClass {
         }
 
         elevatorController.stop();
+        scanner.close();
     }
 }

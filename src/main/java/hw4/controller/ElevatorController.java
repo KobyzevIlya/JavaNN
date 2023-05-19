@@ -5,6 +5,9 @@ import java.util.concurrent.BlockingQueue;
 import hw4.elevator.Elevator;
 import hw4.elevator.State;
 
+/**
+ * The ElevatorController class is responsible for assigning requests to elevators and managing their operation.
+ */
 public class ElevatorController implements Runnable {
     private Elevator firstElevator;
     private Elevator secondElevator;
@@ -13,6 +16,11 @@ public class ElevatorController implements Runnable {
     
     private BlockingQueue<Request> requests;
 
+    /**
+     * Creates a new ElevatorController instance with the specified queue of requests.
+     *
+     * @param requests the queue of requests
+     */
     public ElevatorController(BlockingQueue<Request> requests) {
         this.requests = requests;
         
@@ -24,6 +32,12 @@ public class ElevatorController implements Runnable {
             .setState(State.IDLE);
     }
 
+    /**
+     * Sets the number of floors in the building.
+     *
+     * @param floorsNum the number of floors
+     * @return the ElevatorController instance
+     */
     ElevatorController setFloorsNum(int floorsNum) {
         this.floorsNum = floorsNum;
         return this;
@@ -65,8 +79,7 @@ public class ElevatorController implements Runnable {
                         .setRequestDirection(request.getDirection());
 
                     Thread elevatorThread = new Thread(bestElevator);
-                    elevatorThread.start();
-                    // elevatorThread.join();                    
+                    elevatorThread.start();                 
                 }
             } catch (Exception exception) {
                 exception.printStackTrace();
@@ -74,6 +87,9 @@ public class ElevatorController implements Runnable {
         }
     }
 
+    /**
+     * Stops the elevator controller.
+     */
     public void stop() {
         this.working = false;
     }
